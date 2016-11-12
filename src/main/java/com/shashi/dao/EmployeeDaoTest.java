@@ -14,13 +14,13 @@ import com.shashi.entity.Employee;
 @Qualifier("EmployeeDaoTest")
 public class EmployeeDaoTest implements EmployeeDao {
 
-	private static Map<Integer, Employee> employees = new HashMap<Integer,Employee>() {
+	private static Map<Long, Employee> employees = new HashMap<Long,Employee>() {
 		private static final long serialVersionUID = -6425626884178491264L;
 		{
-			put(1,new Employee(1,"John", new Department("Networking","D1","Network"), "Network Specialist", "+3246598434"));
-			put(2,new Employee(2,"Martin", new Department("IT","D2","IT Issues"), "Product Manager", "+3234324455"));
-			put(3,new Employee(3,"Usher", new Department("Sales","D3","Revenue"), "BU Head", "+3212345678"));
-			put(4,new Employee(4,"Raman", new Department("HR","D4","Resource Management"), "Senior Manager", "+3287654321"));
+			put(1L,new Employee(1L,"John", new Department("Networking","D1","Network"), "Network Specialist", "+3246598434"));
+			put(2L,new Employee(2L,"Martin", new Department("IT","D2","IT Issues"), "Product Manager", "+3234324455"));
+			put(3L,new Employee(3L,"Usher", new Department("Sales","D3","Revenue"), "BU Head", "+3212345678"));
+			put(4L,new Employee(4L,"Raman", new Department("HR","D4","Resource Management"), "Senior Manager", "+3287654321"));
 		}
 	};
 	
@@ -30,12 +30,12 @@ public class EmployeeDaoTest implements EmployeeDao {
 	}
 	
 	@Override
-	public Employee getEmployeeById(int employeeId) {
+	public Employee getEmployeeById(Long employeeId) {
 		return employees.get(employeeId);
 	}
 
 	@Override
-	public void deleteEmployeeById(int employeeId) {
+	public void deleteEmployeeById(Long employeeId) {
 		employees.remove(employeeId);
 		
 	}

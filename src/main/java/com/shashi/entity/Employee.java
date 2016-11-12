@@ -2,6 +2,7 @@ package com.shashi.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
@@ -11,7 +12,8 @@ import org.hibernate.annotations.NaturalId;
 public class Employee {
 	
 	@Id
-	private int id;
+	@GeneratedValue
+	private Long id;
 	
 	@Column(nullable=false)
 	private String name;
@@ -28,21 +30,21 @@ public class Employee {
 	
 	public Employee() {}
 	
-	public Employee(int id, String name, Department department, String designation,
+	public Employee(Long i, String name, Department department, String designation,
 			String contactNumber) {
 		super();
-		this.id = id;
+		this.id = i;
 		this.name = name;
 		this.department = department;
 		this.designation = designation;
 		this.contactNumber = contactNumber;
 	}
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

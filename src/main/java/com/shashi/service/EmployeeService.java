@@ -1,7 +1,5 @@
 package com.shashi.service;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -20,18 +18,18 @@ import com.shashi.entity.Employee;
 public class EmployeeService {
 
 	@Autowired
-	@Qualifier("EmployeeDaoTest")
+	@Qualifier("EmployeeDaoImplementation")
 	private EmployeeDao employeeDao;
 	
-	public Collection<Employee> getAllEmployee() {
+	public Iterable<Employee> getAllEmployee() {
 		return employeeDao.getAllEmployee();
 	}
 	
-	public Employee getEmployeeById(int employeeId) {
+	public Employee getEmployeeById(Long employeeId) {
 		return employeeDao.getEmployeeById(employeeId);
 	}
 
-	public void deleteEmployeeById(int employeeId) {
+	public void deleteEmployeeById(Long employeeId) {
 		employeeDao.deleteEmployeeById(employeeId);
 	}
 

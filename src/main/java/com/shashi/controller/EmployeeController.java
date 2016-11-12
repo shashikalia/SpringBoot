@@ -1,7 +1,5 @@
 package com.shashi.controller;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,17 +19,17 @@ public class EmployeeController {
 	private EmployeeService employeeService;
 	
 	@RequestMapping(method=RequestMethod.GET)
-	public Collection<Employee> getAllEmployee() {
+	public Iterable<Employee> getAllEmployee() {
 		return this.employeeService.getAllEmployee();
 	}
 	
 	@RequestMapping(method=RequestMethod.GET, value="/{id}")
-	public Employee getEmployeeById(@PathVariable("id")int employeeId) {
+	public Employee getEmployeeById(@PathVariable("id")Long employeeId) {
 		return this.employeeService.getEmployeeById(employeeId);
 	}
 	
 	@RequestMapping(method=RequestMethod.DELETE, value="/{id}")
-	public void deleteEmployeeById(@PathVariable("id")int employeeId) {
+	public void deleteEmployeeById(@PathVariable("id")Long employeeId) {
 		this.employeeService.deleteEmployeeById(employeeId);
 	}
 	
