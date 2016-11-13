@@ -1,5 +1,7 @@
 package com.shashi.dao;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -34,14 +36,19 @@ public class EmployeeDaoImpl implements EmployeeDao{
 	}
 
 	@Override
-	public void updateEmployeeById(Employee employee) {
-		this.employeeRepository.save(employee);
+	public Employee updateEmployeeById(Employee employee) {
+		return this.employeeRepository.save(employee);
 	}
 
 	@Override
 	public void addEmployee(Employee employee) {
 		this.employeeRepository.save(employee);
 		
+	}
+
+	@Override
+	public List<Employee> getEmployeeByDepartmentName(String departmentName) {
+		return this.employeeRepository.findByDepartmentDepartmentNameIgnoreCase(departmentName);
 	}
 
 	

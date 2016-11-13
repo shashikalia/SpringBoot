@@ -1,5 +1,7 @@
 package com.shashi.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -25,6 +27,10 @@ public class EmployeeService {
 		return employeeDao.getAllEmployee();
 	}
 	
+	public List<Employee> getEmployeeByDepartmentName(String departmentName) {
+		return this.employeeDao.getEmployeeByDepartmentName(departmentName);
+	}
+	
 	public Employee getEmployeeById(Long employeeId) {
 		return employeeDao.getEmployeeById(employeeId);
 	}
@@ -33,8 +39,8 @@ public class EmployeeService {
 		employeeDao.deleteEmployeeById(employeeId);
 	}
 
-	public void updateEmployeeById(Employee employee) {
-		employeeDao.updateEmployeeById(employee);
+	public Employee updateEmployeeById(Employee employee) {
+		return employeeDao.updateEmployeeById(employee);
 	}
 
 	public void addEmployee(Employee employee) {

@@ -2,6 +2,7 @@ package com.shashi.dao;
 
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -41,18 +42,25 @@ public class EmployeeDaoTest implements EmployeeDao {
 	}
 
 	@Override
-	public void updateEmployeeById(Employee employee) {
+	public Employee updateEmployeeById(Employee employee) {
 		Employee employeeToUpdate = employees.get(employee.getId());
 		employeeToUpdate.setName(employee.getName());
 		employeeToUpdate.setDepartment(employee.getDepartment());
 		employeeToUpdate.setDesignation(employee.getDesignation());
 		employeeToUpdate.setContactNumber(employee.getContactNumber());
+		return employeeToUpdate;
 		
 	}
 
 	@Override
 	public void addEmployee(Employee employee) {
 		employees.put(employee.getId(), employee);
+	}
+
+	@Override
+	public List<Employee> getEmployeeByDepartmentName(String departmentName) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }
