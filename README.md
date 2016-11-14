@@ -1,7 +1,14 @@
 # SpringBoot
 This Project is a simple spring boot application for employee management.
 Database is imitated with in memory datastructure right now and can be changed to any other databse when required.
-H2 database implementation development is currently in progress.
+Implemented Spring Data with H2 database
+
+Started Configuration of Angular JS to develop simple frontend for the application.
+
+Added Spring security credentials (user/user)
+
+Only static content added with angular JS and can be accessible with http://localhost:9000/
+
 
 Tests:
 Can be tested with any browser/Rest client with below URLs:
