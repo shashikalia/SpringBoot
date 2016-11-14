@@ -5,7 +5,7 @@ Implemented Spring Data with H2 database
 
 Started Configuration of Angular JS to develop simple frontend for the application.
 
-Added Spring security credentials (user/user)
+Added Spring security credentials (user/user). To be Added => Per user login using H2 database.
 
 Only static content added with angular JS and can be accessible with http://localhost:9000/
 
