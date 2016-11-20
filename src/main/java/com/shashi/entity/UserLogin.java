@@ -1,10 +1,12 @@
 package com.shashi.entity;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
+@Entity
 public class UserLogin {
 
 	@Id
@@ -19,7 +21,15 @@ public class UserLogin {
 	@NotEmpty
 	private String password;
 
+	public UserLogin(){}
 	
+	public UserLogin(UserLogin user) {
+		this.userLoginId=user.userLoginId;
+		this.employeeId=user.employeeId;
+		this.userName=user.userName;
+		this.password=user.password;
+	}
+
 	public Long getUserLoginId() {
 		return userLoginId;
 	}
@@ -51,6 +61,5 @@ public class UserLogin {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
 	
 }

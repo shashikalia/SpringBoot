@@ -1,7 +1,5 @@
 package com.shashi.security;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -9,19 +7,17 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.shashi.dao.UserLoginRepository;
-import com.shashi.dao.UserRoleRepository;
 import com.shashi.entity.UserLogin;
 
+
 @Service("CustomUserDetailService")
-public class CustomUserDetailService implements UserDetailsService{
+public class CustomUserDetailService implements UserDetailsService {
 
 	private final UserLoginRepository userRepository;
-	private final UserRoleRepository userRolesRepository;
 	
 	@Autowired
-    public CustomUserDetailService(UserLoginRepository userRepository,UserRoleRepository userRolesRepository) {
+    public CustomUserDetailService(UserLoginRepository userRepository) {
         this.userRepository = userRepository;
-        this.userRolesRepository = userRolesRepository;
     }
 	
 	@Override
@@ -31,8 +27,7 @@ public class CustomUserDetailService implements UserDetailsService{
 		if(null == user){
 			throw new UsernameNotFoundException("No user present with username: "+username);
 		}else{
-			List<String> userRoles=userRolesRepository.findRoleByUserName(username);
-			return new CustomUserDetails(user,userRoles);
+			return new CustomUserDetails(user);
 		}
 		
 	}

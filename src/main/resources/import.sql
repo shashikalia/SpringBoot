@@ -1,3 +1,7 @@
+insert into user_login(employee_id, user_name, password) values (1, 'john', 'john@123');
+insert into user_login(employee_id, user_name, password) values (2, 'martin', 'martin@123');
+insert into user_login(employee_id, user_name, password) values (3, 'usher', 'usher@123');
+
 insert into department(department_name, location, function) values ('Networking', 'D1', 'Network');
 insert into department(department_name, location, function) values ('IT', 'D2', 'IT Issues');
 insert into department(department_name, location, function) values ('Sales', 'D3', 'Revenue');

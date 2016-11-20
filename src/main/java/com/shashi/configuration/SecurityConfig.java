@@ -17,24 +17,29 @@ import com.shashi.security.CustomUserDetailService;
 
 @Configuration
 @EnableWebSecurity
-@ComponentScan(basePackageClasses=CustomUserDetailService.class)
+@ComponentScan(basePackageClasses = CustomUserDetailService.class)
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
 
+	@Autowired
+    private UserDetailsService userDetailsService;
 	
 	@Autowired
-	protected void configureAuthentication(UserDetailsService userDetailsService, AuthenticationManagerBuilder auth)
+	public void configureAuthentication(AuthenticationManagerBuilder auth) throws Exception {
+        auth
+            .userDetailsService(userDetailsService);
+    }
+	/*protected void configureAuthentication( AuthenticationManagerBuilder auth)
 			throws Exception {
-		auth.userDetailsService(userDetailsService).passwordEncoder(passwordencoder());
-	}
+		auth.inMemoryAuthentication().withUser("user").password("user").roles("USER").and()
+		.withUser("admin").password("admin").roles("USER","ADMIN");
+	}*/
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests().
-		antMatchers("/resources/**", "/signup").permitAll()
+		http.authorizeRequests()
 		.anyRequest().authenticated()
 		.and()
-		.formLogin().loginPage("/login")
-		.permitAll()
+		.formLogin().permitAll()
 		.and()
 		.logout().permitAll();
 	}
